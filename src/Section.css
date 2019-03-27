@@ -1,0 +1,42 @@
+.Section {
+    margin-bottom: 5em;
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.7);
+    text-align: center;
+    padding: 2em 0;
+}
+
+.members {
+    margin: 3em 0;
+}
+
+@media screen and (min-width: 768px) {
+    .Section {
+        padding: 2em;
+    }
+
+    .members {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-gap: 2em;
+    }
+
+    .bureau .members, .musique_et_chant .members {
+        grid-template-columns: 1fr 1fr 1fr;
+        padding: 0 2em;
+    }
+
+    .mise_en_scène .members, .chorégraphie .members {
+        grid-template-columns: 1fr 1fr;
+        padding: 0 4em;
+    }
+}
+@media screen and (min-width: 1024px) {
+    .members {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+
+    .bureau .members {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}

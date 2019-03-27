@@ -1,28 +1,69 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Route, Link, NavLink, Redirect, Switch } from "react-router-dom";
+
+import Team from "./Team";
+
+export function getCookie(cname) {
+    if (!document.cookie) return "";
+
+    const name = cname + "=";
+    const decodedCookie = decodeURIComponent(document.cookie);
+    const cookiesArray = decodedCookie.split(";");
+
+    for (let cookie of cookiesArray) {
+        while (cookie.charAt(0) === " ") {
+            cookie = cookie.substring(1);
+        }
+        if (cookie.indexOf(name) === 0) {
+            return cookie.substring(name.length);
+        }
+    }
+
+    return "";
+}
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+    constructor(props) {
+        super(props);
+        this.state = {
+            authToken: null,
+            loggedIn: false,
+            years: [2019]
+        };
+    }
+
+    componentWillMount() {
+        const authToken = getCookie("auth_token");
+
+        if (authToken) this.setState({
+            authToken,
+            loggedIn: true
+        });
+    }
+
+    render() {
+        const { loggedIn, years } = this.state;
+
+        return (
+            <Router basename="/equipe">
+                <div className="App">
+                    <div className="links">
+                        {years.map(
+                            year => <NavLink className="yearLink" to={"/" + year} activeStyle={{ color: "white" }}>{year}</NavLink>
+                        )}
+                    </div>
+
+                    <Switch>
+                        {years.map(
+                            year => <Route path={"/" + year} component={() => <Team loggedIn={loggedIn} year={year} />} />
+                        )}
+                        <Route component={() => <Redirect to="/2019" />} />
+                    </Switch>
+                </div>
+            </Router>
+        );
+    }
 }
 
 export default App;

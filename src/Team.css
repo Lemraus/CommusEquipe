@@ -1,0 +1,52 @@
+.sections {
+    padding: 0 2em;
+}
+
+.intro {
+    padding: 2em 2em;
+    margin: 2em 0;
+    margin-bottom: 3em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.intro .introText {
+    padding: 2em;
+    background: rgba(0, 0, 0, 0.7);
+    height: 100%;
+}
+.intro .introText h1 {
+    font-size: 3em;
+    font-family: Duck in Shipah;
+    text-align: center;
+    margin-bottom: 0.5em;
+}
+
+@media screen and (min-width: 768px) {
+    .intro {
+        padding: 2em 10%;
+    }
+
+    .sections {
+        padding: 2em 7em;
+    }
+}   
+@media screen and (min-width: 1024px) {
+    .intro {
+        padding: 2em 20%;
+    }
+}
+@media screen and (min-width: 1600px) {
+    .intro {
+        padding: 4em 30%;
+    }
+
+    .sections {
+        padding: 2em 10em;
+    }
+}
+@media screen and (min-width: 1920px) {
+    .intro {
+        padding: 6em 30%;
+    }
+}

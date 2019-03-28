@@ -30,7 +30,7 @@ class Member extends React.Component {
                 member.setState({ deleted: true });
             }
         }
-        deleteReq.open("DELETE", `http://localhost:${apiPort}/api/equipe/` + id);
+        deleteReq.open("DELETE", `http://localhost:80/api/equipe/` + id);
         deleteReq.setRequestHeader("Authorization", "Bearer " + getCookie("auth_token"));
         deleteReq.send();
     }

@@ -32,7 +32,7 @@ class Team extends React.Component {
                 app.setState({ members: filteredMembers });
             }
         }
-        getMembresReq.open("GET", `http://localhost:${apiPort}/api/equipe/` + this.state.year);
+        getMembresReq.open("GET", `http://localhost:80/api/equipe/` + this.state.year);
         getMembresReq.send();
     }
 

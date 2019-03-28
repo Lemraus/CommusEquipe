@@ -30,7 +30,7 @@ class Member extends React.Component {
                 member.setState({ deleted: true });
             }
         }
-        deleteReq.open("DELETE", `http://commus.fr/api/equipe/` + id);
+        deleteReq.open("DELETE", "/api/equipe/" + id);
         deleteReq.setRequestHeader("Authorization", "Bearer " + getCookie("auth_token"));
         deleteReq.send();
     }

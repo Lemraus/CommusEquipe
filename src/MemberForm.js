@@ -20,7 +20,7 @@ export class NewMemberForm extends React.Component {
                 form.reset();
             }
         }
-        postMemberReq.open("POST", `http://localhost:80/api/equipe`);
+        postMemberReq.open("POST", `http://commus.fr/api/equipe`);
         postMemberReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         postMemberReq.setRequestHeader("Authorization", `Bearer ${getCookie("auth_token")}`);
         postMemberReq.send(`year=${year}&section=${section}&name=${name}&poste=${poste}&photoPath=${photoPath}`);

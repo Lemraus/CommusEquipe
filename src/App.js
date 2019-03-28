@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Route, Link, NavLink, Redirect, Switch } from 
 
 import Team from "./Team";
 
+export const apiPort = 5000;
+
 export function getCookie(cname) {
     if (!document.cookie) return "";
 

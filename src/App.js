@@ -34,7 +34,7 @@ class App extends Component {
         this.state = {
             authToken: null,
             loggedIn: false,
-            years: [2019]
+            years: [2019, 2020]
         };
     }
 

@@ -5,7 +5,7 @@ import "./static/css/App.css";
 
 import Team from "./Team";
 
-const onProduction = false;
+const onProduction = true;
 
 export const apiPath = onProduction ? "" : "http://localhost:5000";
 

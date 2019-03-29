@@ -1,8 +1,8 @@
 import React, { Fragment } from "react";
 import { EditMemberForm } from "./MemberForm";
 import { getCookie } from "./App";
-import "./Member.css";
-import { apiPort } from "./App";
+import "./static/css/Member.css";
+import { apiPath } from "./App";
 
 class Member extends React.Component {
     constructor(props) {
@@ -30,7 +30,7 @@ class Member extends React.Component {
                 member.setState({ deleted: true });
             }
         }
-        deleteReq.open("DELETE", "/api/equipe/" + id);
+        deleteReq.open("DELETE", `${apiPath}/api/equipe/` + id);
         deleteReq.setRequestHeader("Authorization", "Bearer " + getCookie("auth_token"));
         deleteReq.send();
     }
@@ -53,7 +53,7 @@ class Member extends React.Component {
                                     <EditMemberForm year={year} section={section} name={name} />
                                     :
                                     <Fragment>
-                                        <img src={"../portraits/" + year + "/" + section + "/" + photoPath} className="photoMembre" />
+                                        <img src={process.env.PUBLIC_URL + "/portraits/" + year + "/" + section + "/" + photoPath} className="photoMembre" />
                                         <h3>{name}</h3>
                                         <h4>{poste}</h4>
                                     </Fragment>
@@ -64,7 +64,7 @@ class Member extends React.Component {
                             </Fragment>
                             :
                             <Fragment>
-                                <img src={"../portraits/" + year + "/" + section + "/" + photoPath} className="photoMembre" />
+                                <img src={process.env.PUBLIC_URL + "/portraits/" + year + "/" + section + "/" + photoPath} className="photoMembre" />
                                 <h3>{name}</h3>
                                 <h4>{poste}</h4>
                             </Fragment>

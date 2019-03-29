@@ -1,0 +1,214 @@
+/* Fonts */
+@font-face {
+    font-family: Duck in Shipah;
+    src: url("fonts/Duck\ in\ Shipah\ Italic.ttf");
+}
+@font-face{
+    font-family: Oregon;
+    src: url("fonts/Oregon/Oregon\ LDO.ttf");
+}
+
+/* General */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: url("../img/curtain2-min.jpg") no-repeat center center;
+    background-size: 300% 100%;
+    color: white;
+    font-size: 80%;
+    font-family: Oregon;
+    overflow-x: hidden;
+    /* padding-top: 5em; */
+}
+
+.vcenter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+section {
+    text-align: center;
+}
+section.full {
+    min-height: 100vh;
+}
+section.first {
+    padding: 7em;
+}
+
+/* General for larger screens (from the width of an iPad screen) */
+@media screen and (min-width: 768px) {
+    body {
+	background-size: 200% 100%;
+        font-size: 100%;
+    }
+}
+@media screen and (min-width: 1024px) {
+    body{
+	background-size: 100% 100%;
+	background-attachment: fixed;
+    }
+}
+
+/* Navbar */
+#navbar {
+    padding: 1em 1em 0.5em 1em;
+    background-color: transparent;
+    position: fixed;
+    width: 100%;
+    text-align: right;
+    z-index: 1;
+    transition: all 0.3s ease-in;
+}
+#navbar.scrolled, #navbar.expanded {
+    background-color: black;
+}
+#navbar #navToggler {
+    display: inline-block;
+}
+#navbar #navToggler div {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 5px 0;
+}
+#navbar #nav {
+    font-family: Duck in Shipah;
+    font-size: 2em;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.3s linear;
+}
+#navbar.expanded #nav {
+    width: auto;
+    height: 8em;
+    opacity: 1;
+    padding: 1em 0;
+}
+#nav a {
+    text-decoration: none;
+    color: gray;
+    transition: all 0.3s ease-in;
+}
+#nav a.active, #nav a:hover {
+    color: white;
+}
+
+/* Navbar for larger screens (from the width of an iPad Pro screen) */
+@media screen and (min-width: 1024px) {
+
+    #navbar {
+        padding: 0 1em 1em 1em;
+        background-color: transparent;
+        transition: background-color 0.5s ease-in;
+    }
+    #navbar #navToggler {
+        width: 0;
+        height: 0;
+        overflow: hidden;
+    }
+    #navbar #nav {
+        display: block;
+        width: auto;
+        height: auto;
+        opacity: 1;
+        text-align: center;
+        white-space: nowrap;
+        overflow: visible;
+        width: 100%;
+        transition: width 0.5s ease-in-out;
+    }
+    #navbar.scrolled #nav {
+        width: 0;
+        font-size: 1.7em;
+    }
+    #navbar #nav a {
+        margin-right: 0.5em;
+    }
+}
+
+
+/* Footer */
+
+#footer {
+    background-color: black;
+    font-family: Oregon;
+    text-align: center;
+    padding: 4em 0;
+}
+
+#footer div {
+    margin-bottom: 2em;
+}
+
+#address img {
+    width: 40%;
+    margin-bottom: 1em;
+}
+
+#contact a {
+    color: white;
+}
+#networkBox img {
+    width: 15%;
+    display: inline-block;
+}
+
+/* Footer responsivity */
+@media screen and (min-width: 768px) {
+    #footer {
+        text-align: left;
+        padding: 5em 10% 10em;
+        display: grid;
+        grid-gap: 2em;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    
+    #footer div {
+        margin-bottom: 0;
+    }
+
+    #address img {
+        width: 50%;
+    }
+
+    #contact {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    #networkBox img {
+        width: 20%;
+    }
+
+    #copyright {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        text-align: right;
+    }
+}
+@media screen and (min-width: 1280px) {
+    #footer {
+        padding: 5em 20% 10em;
+    }
+
+    #address img {
+        width: 40%;
+    }
+}
+@media screen and (min-width: 1600px) {
+    #networkBox img {
+        width: 15%;
+    }
+}

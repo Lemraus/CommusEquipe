@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
-import './App.css';
 import { BrowserRouter as Router, Route, Link, NavLink, Redirect, Switch } from "react-router-dom";
+
+import "./static/css/App.css";
 
 import Team from "./Team";
 
-export const apiPort = 5000;
+const onProduction = false;
+
+export const apiPath = onProduction ? "" : "http://localhost:5000";
 
 export function getCookie(cname) {
     if (!document.cookie) return "";

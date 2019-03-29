@@ -2,7 +2,7 @@ import React from "react";
 import Member from "./Member";
 
 import { NewMemberForm, EditMemberForm } from "./MemberForm";
-import "./Section.css";
+import "./static/css/Section.css";
 
 class Section extends React.Component {
     constructor(props) {

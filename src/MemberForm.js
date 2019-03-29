@@ -1,7 +1,7 @@
 import React from "react";
 import { getCookie } from "./App";
-import "./MemberForm.css";
-import { apiPort } from "./App";
+import "./static/css/MemberForm.css";
+import { apiPath } from "./App";
 
 export class NewMemberForm extends React.Component {
     submitForm = (event) => {
@@ -20,7 +20,7 @@ export class NewMemberForm extends React.Component {
                 form.reset();
             }
         }
-        postMemberReq.open("POST", "/api/equipe");
+        postMemberReq.open("POST", `${apiPath}/api/equipe`);
         postMemberReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         postMemberReq.setRequestHeader("Authorization", `Bearer ${getCookie("auth_token")}`);
         postMemberReq.send(`year=${year}&section=${section}&name=${name}&poste=${poste}&photoPath=${photoPath}`);

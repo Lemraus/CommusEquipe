@@ -1,7 +1,7 @@
 import React from "react";
 import Section from "./Section"
-import "./Team.css";
-import { apiPort } from "./App";
+import "./static/css/Team.css";
+import { apiPath } from "./App";
 
 class Team extends React.Component {
     constructor(props) {
@@ -32,7 +32,7 @@ class Team extends React.Component {
                 app.setState({ members: filteredMembers });
             }
         }
-        getMembresReq.open("GET", "/api/equipe/" + this.state.year);
+        getMembresReq.open("GET", `${apiPath}/api/equipe/` + this.state.year);
         getMembresReq.send();
     }
 
